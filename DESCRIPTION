@@ -1,0 +1,19 @@
+Package: shinybrowser
+Title: TODO
+Version: 0.0.0.9000
+Authors@R: person("Dean", "Attali",
+    email = "daattali@gmail.com",
+    role = c("aut", "cre"),
+    comment = c(ORCID="0000-0002-5645-3493"))
+Description: TODO
+URL: https://github.com/daattali/shinybrowser https://daattali.com/shiny/shinybrowser-demo/
+BugReports: https://github.com/daattali/shinybrowser/issues
+Depends:
+    R (>= 3.1.0)
+Imports:
+    shiny (>= 1.0.4)
+License: MIT + file LICENSE
+LazyData: true
+Encoding: UTF-8
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
