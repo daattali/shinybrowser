@@ -1,6 +1,8 @@
+// Dean Attali
+
 shinybrowser = function() {
 
-  const UNKNOWN = 'UNKNOWN';
+  var UNKNOWN = 'UNKNOWN';
 
   var isMobile = function() {
     // ambiguous results for tablets
@@ -8,9 +10,9 @@ shinybrowser = function() {
   };
 
   var getBrowser = function() {
-    let browser = UNKNOWN;
-    let version = UNKNOWN;
-    let ua = navigator.userAgent;
+    var browser = UNKNOWN;
+    var version = UNKNOWN;
+    var ua = navigator.userAgent;
 
     try {
     	// Opera 8+
@@ -36,7 +38,7 @@ shinybrowser = function() {
     	// Internet Explorer 6-11
     	else if (/* @cc_on!@*/false || document.documentMode) {
     		browser = 'Internet Explorer';
-    		let msie = ua.indexOf('MSIE ');
+    		var msie = ua.indexOf('MSIE ');
         if (msie > 0) { // IE 10-
           version = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
         } else {
@@ -49,7 +51,7 @@ shinybrowser = function() {
     	// Edge 20+
     	else if (!(document.documentMode) && window.StyleMedia) {
     		browser = 'Edge';
-    		let edge = ua.indexOf('Edge/');
+    		var edge = ua.indexOf('Edge/');
     		if (edge > 0) {
     		  version = parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
     		}
@@ -72,9 +74,9 @@ shinybrowser = function() {
   };
 
   var getOS = function() {
-    let os = UNKNOWN;
-    let version = UNKNOWN;
-    let ua = navigator.userAgent;
+    var os = UNKNOWN;
+    var version = UNKNOWN;
+    var ua = navigator.userAgent;
 
     try {
     	if (isMobile()) {
@@ -130,9 +132,13 @@ shinybrowser = function() {
       var props = {
         device : isMobile() ? 'Mobile' : 'Desktop',
         os : getOS(),
-    		browser : getBrowser()
+    		browser : getBrowser(),
+    		dimensions : {
+    		  width : $(window).width(),
+    		  height : $(window).height()
+    		}
       };
-      Shiny.setInputValue("shinybrowser", props);
+      Shiny.setInputValue(".shinybrowser:shinybrowser", props);
     },
 
     init : function() {
