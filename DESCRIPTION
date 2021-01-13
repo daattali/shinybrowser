@@ -1,17 +1,22 @@
 Package: shinybrowser
-Title: TODO
-Version: 0.0.0.9000
+Title: Find Out Information About A User's Web Browser in 'Shiny'
+Version: 0.0.0.9001
 Authors@R: person("Dean", "Attali",
     email = "daattali@gmail.com",
     role = c("aut", "cre"),
     comment = c(ORCID="0000-0002-5645-3493"))
-Description: TODO
-URL: https://github.com/daattali/shinybrowser https://daattali.com/shiny/shinybrowser-demo/
+Description: Find out what information about a user's web browser in 'Shiny' apps. The available
+    information is: browser name (such as 'Chrome' or 'Safari') and version, device type 
+    (mobile or dekstop), operating system (such as 'Windows' or 'Mac' or 'Android') and version,
+    browser dimensions.
+URL: https://github.com/daattali/shinybrowser https://daattali.com/shiny/shinybrowser-demo
 BugReports: https://github.com/daattali/shinybrowser/issues
 Depends:
     R (>= 3.1.0)
 Imports:
     shiny (>= 1.0.4)
+Suggests:
+    shinydisconnect
 License: MIT + file LICENSE
 LazyData: true
 Encoding: UTF-8

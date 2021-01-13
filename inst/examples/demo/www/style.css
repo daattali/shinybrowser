@@ -1,0 +1,121 @@
+html, body {
+  font-size: 16px;
+}
+body {
+  padding: 0 20px;
+  background: #e5fff5;
+  color: #333;
+}
+
+#header {
+  text-align: center;
+  color: #fdfdfd;
+  padding: 20px 5px 40px;
+  border-bottom: 1px solid #ddd;
+  margin: 0 -35px 30px;
+  background-color: #29a991;
+  background-image: url('maze-white.png');
+}
+
+#pagetitle {
+  font-size: 5em;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+#subtitle {
+  font-size: 2em;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+#subsubtitle {
+  font-size: 1.3em;
+}
+
+#subsubtitle a {
+  color: #fdfdfd;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 979px) {
+  #header {
+    padding: 15px 5px 35px;
+  }
+  #pagetitle {
+    font-size: 4em;
+  }
+  #subtitle {
+    font-size: 1.7em;
+  }
+  #subsubtitle {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #pagetitle {
+    font-size: 3.5em;
+  }
+  #subtitle {
+    font-size: 1.5em;
+  }
+  #subsubtitle {
+    font-size: 1.1em;
+  }
+}
+
+#sections {
+  margin: 0 auto;
+  background: white;
+  padding: 20px 20px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 0 2px 10px 0 rgba(34,36,38,.15);
+  border-radius: 3px;
+  width: 550px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section .section_title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section .section_param {
+  margin-bottom: 10px;
+}
+
+.section .section_value {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.section .shiny-text-output {
+  font-weight: normal;
+}
+
+.section code {
+  float: right;
+  background-color: transparent;
+  padding: 0;
+  color: #457357;
+}
+
+@media only screen and (max-width: 767px) {
+  #sections {
+    width: 100%;
+    padding: 10px 10px 0;
+  }
+  .section .section_value {
+    display: block;
+  }
+  .section code {
+    float: none;
+  }
+}

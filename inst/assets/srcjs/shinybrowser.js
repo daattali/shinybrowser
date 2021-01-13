@@ -1,4 +1,4 @@
-// Dean Attali
+// {shinybrowser} by Dean Attali
 
 shinybrowser = function() {
 
@@ -131,14 +131,14 @@ shinybrowser = function() {
     detect : function() {
       var props = {
         device : isMobile() ? 'Mobile' : 'Desktop',
+        browser : getBrowser(),
         os : getOS(),
-    		browser : getBrowser(),
     		dimensions : {
     		  width : $(window).width(),
     		  height : $(window).height()
     		}
       };
-      Shiny.setInputValue(".shinybrowser:shinybrowser", props);
+      Shiny.setInputValue(".shinybrowser", props);
     },
 
     init : function() {
