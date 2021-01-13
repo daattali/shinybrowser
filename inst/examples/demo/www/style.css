@@ -43,7 +43,7 @@ body {
     padding: 15px 5px 35px;
   }
   #pagetitle {
-    font-size: 4em;
+    font-size: 3em;
   }
   #subtitle {
     font-size: 1.7em;
@@ -55,7 +55,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   #pagetitle {
-    font-size: 3.5em;
+    font-size: 3em;
   }
   #subtitle {
     font-size: 1.5em;
