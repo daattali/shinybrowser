@@ -3,18 +3,20 @@ html, body {
 }
 body {
   padding: 0 20px;
-  background: #e5fff5;
+  background-color: #e5fff5;
+  background-image: url('maze-white.png');
   color: #333;
+  text-align: center;
 }
 
 #header {
   text-align: center;
   color: #fdfdfd;
-  padding: 20px 5px 40px;
+  padding: 70px 5px 90px;
   border-bottom: 1px solid #ddd;
   margin: 0 -35px 30px;
-  background-color: #29a991;
-  background-image: url('maze-white.png');
+  background: #29a991;
+  clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 3vw));
 }
 
 #pagetitle {
@@ -66,6 +68,7 @@ body {
 }
 
 #sections {
+  text-align: left;
   margin: 0 auto;
   background: white;
   padding: 20px 20px 10px;
@@ -118,4 +121,13 @@ body {
   .section code {
     float: none;
   }
+}
+
+#help {
+  margin: 20px;
+  display: inline-block;
+  color: #457357;
+  padding: 10px;
+  font-size: 0.9rem;
+  background: #ffffff80;
 }

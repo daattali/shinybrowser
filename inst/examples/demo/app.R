@@ -16,8 +16,7 @@ ui <- fluidPage(
   title = paste0("{shinybrowser} ", as.character(packageVersion("shinybrowser"))),
 
   tags$head(
-    tags$link(rel="stylesheet", src="style.css"),
-    includeCSS(file.path('www', 'style.css')),
+    tags$link(rel = "stylesheet", href = "style.css"),
     # Favicon
     tags$link(rel = "shortcut icon", type="image/x-icon", href="https://daattali.com/shiny/img/favicon.ico"),
     # Facebook OpenGraph tags
@@ -111,6 +110,10 @@ ui <- fluidPage(
         tags$code("shinybrowser::get_device()")
       )
     )
+  ),
+  div(
+    id = "help",
+    "To access these values in a Shiny app, simply call shinybrowser::detect() anywhere in the UI"
   )
 )
 
