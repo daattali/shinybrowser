@@ -43,6 +43,11 @@ get_height <- function() {
 }
 
 #' @export
+get_user_agent <- function() {
+  get_shinybrowser_info()[["user_agent"]]
+}
+
+#' @export
 is_device_mobile <- function() {
   get_device() == "Mobile"
 }

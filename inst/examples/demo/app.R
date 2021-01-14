@@ -58,13 +58,15 @@ ui <- fluidPage(
       div(class = "section_title", "Your browser"),
       div(
         class = "section_param",
-        div(class = "section_value", "Name:",
+        div(class = "section_value",
+            "Name:",
             textOutput("browser_name", inline = TRUE)),
         tags$code("shinybrowser::get_browser()")
       ),
       div(
         class = "section_param",
-        div(class = "section_value", "Version:",
+        div(class = "section_value",
+            "Version:",
             textOutput("browser_version", inline = TRUE)),
         tags$code("shinybrowser::get_browser_version()")
       )
@@ -74,13 +76,15 @@ ui <- fluidPage(
       div(class = "section_title", "Operating system"),
       div(
         class = "section_param",
-        div(class = "section_value", "Name:",
+        div(class = "section_value",
+            "Name:",
             textOutput("os_name", inline = TRUE)),
         tags$code("shinybrowser::get_os()")
       ),
       div(
         class = "section_param",
-        div(class = "section_value", "Version:",
+        div(class = "section_value",
+            "Version:",
             textOutput("os_version", inline = TRUE)),
         tags$code("shinybrowser::get_os_version()")
       )
@@ -90,25 +94,35 @@ ui <- fluidPage(
       div(class = "section_title", "Browser dimensions"),
       div(
         class = "section_param",
-        div(class = "section_value", "Width:",
+        div(class = "section_value",
+            "Width:",
             textOutput("width", inline = TRUE)),
         tags$code("shinybrowser::get_width()")
       ),
       div(
         class = "section_param",
-        div(class = "section_value", "Height:",
+        div(class = "section_value",
+            "Height:",
             textOutput("height", inline = TRUE)),
         tags$code("shinybrowser::get_height()")
       )
     ),
     div(
       class = "section",
-      div(class = "section_title", "Mobile or desktop?"),
+      div(class = "section_title", "Misc"),
       div(
         class = "section_param",
         div(class = "section_value",
+            "Mobile or desktop?",
             textOutput("device", inline = TRUE)),
         tags$code("shinybrowser::get_device()")
+      ),
+      div(
+        class = "section_param",
+        div(class = "section_value",
+            "Full user agent:",
+            uiOutput("useragent_section", inline = TRUE)),
+        tags$code("shinybrowser::get_user_agent()")
       )
     )
   ),
@@ -139,6 +153,17 @@ server <- function(input, output, session) {
   })
   output$device <- renderText({
     get_device()
+  })
+  output$ua <- renderText({
+    get_user_agent()
+  })
+
+  output$useragent_section <- renderUI({
+    if (is.null(input$show_ua) || input$show_ua == 0) {
+      actionButton("show_ua", "Show", class = "btn-xs")
+    } else {
+      textOutput("ua", inline = TRUE)
+    }
   })
 }
 

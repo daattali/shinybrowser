@@ -15,10 +15,10 @@ shinybrowser = function() {
     var ua = navigator.userAgent;
 
     try {
-    	// Opera 8+
-    	if (typeof window.opera !== 'undefined') {
+    	// Opera 15+
+    	if (ua.indexOf('OPR/') >= 0) {
     	  browser = 'Opera';
-    	  version = opera.version();
+    	  version = ua.match(/OPR\/(\d+)/i)[1];
     	}
 
     	// Firefox 1+
@@ -32,9 +32,7 @@ shinybrowser = function() {
     	         (typeof window.safari !== 'undefined' &&
     	           typeof window.safari.pushNotification !== 'undefined')) {
     		browser = 'Safari';
-    		if (ua.match(/version\/([\d\.]+)/i) !== null) {
-    		  version = ua.match(/version\/([\d\.]+)/i)[1]
-    		}
+    		version = ua.match(/version\/(\d+)/i)[1];
     	}
 
     	// Internet Explorer 6-11
@@ -138,7 +136,8 @@ shinybrowser = function() {
     		dimensions : {
     		  width : $(window).width(),
     		  height : $(window).height()
-    		}
+    		},
+    		user_agent : navigator.userAgent
       };
       Shiny.setInputValue(".shinybrowser", props);
     },
