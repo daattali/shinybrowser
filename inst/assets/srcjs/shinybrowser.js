@@ -28,9 +28,9 @@ shinybrowser = function() {
     	}
 
     	// Safari 3+
-    	else if (/constructor/i.test(window.HTMLElement) || (function (p) {
-    		return p.toString() === '[object SafariRemoteNotification]';
-    	})(!window['safari'])) {
+    	else if (/constructor/i.test(window.HTMLElement) ||
+    	         (typeof window.safari !== 'undefined' &&
+    	           typeof window.safari.pushNotification !== 'undefined')) {
     		browser = 'Safari';
     		version = ua.match(/(safari(?=\/))\/?\s*(\d+)/i)[2];
     	}
