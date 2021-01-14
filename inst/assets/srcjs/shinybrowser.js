@@ -32,7 +32,9 @@ shinybrowser = function() {
     	         (typeof window.safari !== 'undefined' &&
     	           typeof window.safari.pushNotification !== 'undefined')) {
     		browser = 'Safari';
-    		version = ua.match(/(safari(?=\/))\/?\s*(\d+)/i)[2];
+    		if (ua.match(/version\/([\d\.]+)/i) !== null) {
+    		  version = ua.match(/version\/([\d\.]+)/i)[1]
+    		}
     	}
 
     	// Internet Explorer 6-11
