@@ -106,14 +106,15 @@ ui <- fluidPage(
       div(class = "section_title", "Mobile or desktop?"),
       div(
         class = "section_param",
-        textOutput("device", inline = TRUE),
+        div(class = "section_value",
+            textOutput("device", inline = TRUE)),
         tags$code("shinybrowser::get_device()")
       )
     )
   ),
   div(
     id = "help",
-    "To access these values in a Shiny app, simply call shinybrowser::detect() anywhere in the UI"
+    "To access these values in a Shiny app, simply call", tags$code("shinybrowser::detect()"), "anywhere in the UI"
   )
 )
 
