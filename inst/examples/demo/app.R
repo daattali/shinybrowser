@@ -132,10 +132,10 @@ server <- function(input, output, session) {
     get_os_version()
   })
   output$width <- renderText({
-    get_width()
+    paste0(get_width(), "px")
   })
   output$height <- renderText({
-    get_height()
+    paste0(get_height(), "px")
   })
   output$device <- renderText({
     get_device()
