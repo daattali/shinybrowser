@@ -1,5 +1,15 @@
 # shinybrowser
 
+<p align="center">
+  <a href="https://github.com/daattali/shinybrowser/actions">
+    <img src="https://github.com/daattali/shinybrowser/workflows/R-CMD-check/badge.svg" alt="R Build Status" />
+  </a>
+  <a href="https://cran.r-project.org/package=shinybrowser">
+    <img src="https://www.r-pkg.org/badges/version/shinybrowser" alt="CRAN version" />
+  </a>
+</p>
+
+
 Detect a user's web browser information in Shiny apps. See a demo of what information you get: https://daattali.com/shiny/shinybrowser-demo/
 
 This is useful for different cases when you want to know:
