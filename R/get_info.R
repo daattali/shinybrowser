@@ -215,7 +215,7 @@ is_device_mobile <- function() {
 #' See [get_device()] for details.
 #' @export
 is_device_desktop <- function() {
-  !is_mobile()
+  !is_device_mobile()
 }
 
 #' Is the user using Internet Explorer?
@@ -265,6 +265,6 @@ is_os_mac <- function() {
 
 get_shinybrowser_info <- function() {
   session <- shiny::getDefaultReactiveDomain()$rootScope()
-  req(session$input$.shinybrowser)
+  shiny::req(session$input$.shinybrowser)
   session$input$.shinybrowser
 }

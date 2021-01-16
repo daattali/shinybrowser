@@ -1,5 +1,5 @@
 Package: shinybrowser
-Title: Find Out Information About A User's Web Browser in 'Shiny'
+Title: Find Out Information About a User's Web Browser in 'Shiny'
 Version: 0.0.0.9001
 Authors@R: person("Dean", "Attali",
     email = "daattali@gmail.com",
