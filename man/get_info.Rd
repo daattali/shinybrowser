@@ -2,10 +2,72 @@
 % Please edit documentation in R/get_info.R
 \name{get_info}
 \alias{get_info}
-\title{Get all info}
+\title{Get all information about a user's browser}
 \usage{
 get_info()
 }
 \description{
-Get all info
+Get a list with all the information detected about the user's browser.\cr\cr
+The list is reactive, therefore it must be accessed inside a reactive context
+(such as an \link[shiny:observe]{observe} or \link[shiny:reactive]{reactive}).\cr\cr
+\code{{shinybrowser}} must be initialized with a call to \code{\link[=detect]{detect()}} in the app's ui.
+}
+\section{Accuracy}{
+
+It's important to understand there is no reliable way to detect the
+information in \code{{shinybrowser}} with 100\% accuracy.\cr\cr\code{{shinybrowser}} makes
+a best effort at identifying the most accurate information, but some
+browser/operating system combinations may be difficult to identify. Users
+can also use a variety of tools to deliberately spoof this information.\cr\cr
+With that in mind, \code{{shinybrowser}} should detect the correct information in
+most cases.
+}
+
+\section{Supported values}{
+
+Only major browsers and operating systems are supported, which means that the
+RStudio Viewer may result in an "UNKNOWN" browser, and unpopular operating systems
+may also result in "UNKNOWN".\cr\cr
+For a list of values that can be detected, see \link{SUPPORTED_BROWSERS},
+\link{SUPPORTED_DEVICES}, and \link{SUPPORTED_OPERATING_SYSTEMS}.
+}
+
+\section{Mobile vs desktop vs tablet}{
+
+\code{{shinybrowser}} attempts to detect whether a device is "mobile" or "desktop".
+The distinction between mobile and desktop is not always clear, so if what you
+actually care about is the size of the device, it might be better to use \code{\link[=get_width]{get_width()}}.
+\code{\link[=get_width]{get_width()}}.\cr\cr
+Tablets return ambiguous results; some tablets self-report as mobile devices while
+others as desktop.
+}
+
+\section{Width and height}{
+
+The width and height of the browser window are only reported when the page loads.
+If the user resizes the browser window, the new dimensions are not reported until
+the page is refreshed.
+}
+
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Your browser information:",
+    verbatimTextOutput("browser_info")
+  )
+  server <- function(input, output, session) {
+    output$browser_info <- renderPrint({
+      shinybrowser::get_info()
+    })
+  }
+  shinyApp(ui, server)
+}
+}
+\seealso{
+\code{\link[=detect]{detect()}}, \code{\link[=get_browser]{get_browser()}}, \code{\link[=get_browser_version]{get_browser_version()}}, \code{\link[=get_os]{get_os()}}, \code{\link[=get_os_version]{get_os_version()}},
+\code{\link[=get_device]{get_device()}}, \code{\link[=get_width]{get_width()}}, \code{\link[=get_height]{get_height()}}, \code{\link[=get_user_agent]{get_user_agent()}},
+\link{SUPPORTED_BROWSERS}, \link{SUPPORTED_DEVICES}, \link{SUPPORTED_OPERATING_SYSTEMS}
 }

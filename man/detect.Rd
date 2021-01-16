@@ -10,6 +10,43 @@ detect()
 This function must be called somewhere in a Shiny app's UI in order to use any other
 \{shinybrowser\} functions.
 }
+\section{Accuracy}{
+
+It's important to understand there is no reliable way to detect the
+information in \code{{shinybrowser}} with 100\% accuracy.\cr\cr\code{{shinybrowser}} makes
+a best effort at identifying the most accurate information, but some
+browser/operating system combinations may be difficult to identify. Users
+can also use a variety of tools to deliberately spoof this information.\cr\cr
+With that in mind, \code{{shinybrowser}} should detect the correct information in
+most cases.
+}
+
+\section{Supported values}{
+
+Only major browsers and operating systems are supported, which means that the
+RStudio Viewer may result in an "UNKNOWN" browser, and unpopular operating systems
+may also result in "UNKNOWN".\cr\cr
+For a list of values that can be detected, see \link{SUPPORTED_BROWSERS},
+\link{SUPPORTED_DEVICES}, and \link{SUPPORTED_OPERATING_SYSTEMS}.
+}
+
+\section{Mobile vs desktop vs tablet}{
+
+\code{{shinybrowser}} attempts to detect whether a device is "mobile" or "desktop".
+The distinction between mobile and desktop is not always clear, so if what you
+actually care about is the size of the device, it might be better to use \code{\link[=get_width]{get_width()}}.
+\code{\link[=get_width]{get_width()}}.\cr\cr
+Tablets return ambiguous results; some tablets self-report as mobile devices while
+others as desktop.
+}
+
+\section{Width and height}{
+
+The width and height of the browser window are only reported when the page loads.
+If the user resizes the browser window, the new dimensions are not reported until
+the page is refreshed.
+}
+
 \examples{
 if (interactive()) {
   library(shiny)
@@ -28,5 +65,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=get_info]{get_info()}}
+\code{\link[=get_info]{get_info()}}, \code{\link[=get_browser]{get_browser()}}, \link{SUPPORTED_BROWSERS}
 }
