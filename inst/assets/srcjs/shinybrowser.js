@@ -68,6 +68,12 @@ shinybrowser = function() {
     		browser = 'Chrome';
     		version = ua.match(/Chrom(e|ium)\/([0-9]+)\./i)[2];
     	}
+
+    	// Chrome on iOS
+    	else if (ua.indexOf('CriOS/') >= 0) {
+    		browser = 'Chrome';
+    		version = ua.match(/CriOS\/([0-9]+)\./i)[2];
+    	}
     } catch(err) {}
 
     return { name : browser, version : version };
