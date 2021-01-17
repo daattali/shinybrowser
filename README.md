@@ -60,12 +60,14 @@ The available information is: browser name (such as "Chrome" or "Safari") and ve
 - [Sponsors 🏆](#sponsors)
 - [How to use](#usage)
 - [Example](#example)
+- [Convenience checker functions](#convenience)
 - [Installation](#install)
-- [Accuracy](#accuracy)
-- [Supported values](#supported)
-- [Mobile vs desktop vs tablet](#device_type)
-- [Width and height](#dimensions)
-- [Convenience checker functions](#dimensions)
+- [Limitations](#limitations)
+  - [Accuracy](#accuracy)
+  - [Supported values](#supported)
+  - [Mobile vs desktop vs tablet](#device_type)
+  - [Width and height](#dimensions)
+
 
 <h2 id="problem">The Problem</h2>
 
@@ -139,6 +141,10 @@ List of 5
 
 Note that {shinybrowser} also returns the "user_agent" string, which you can access using `get_user_agent()`, but you generally shouldn't need to use this string.
 
+<h2 id="convenience">Convenience checker functions</h2>
+
+{shinybrowser} has a few convenience functions for very common checks. For example, there are many browsers, but often Internet Explorer is the problematic one. If you want to check for it you can use `is_browser_ie()`, which is just a shorthand for `get_browser() == "Internet Explorer"`. There are a few other similar `is_*` functions that can be used as a shortcut.
+
 <h2 id="install">Installation</h2>
 
 To install the stable CRAN version:
@@ -154,7 +160,9 @@ install.packages("remotes")
 remotes::install_github("daattali/shinybrowser")
 ```
 
-<h2 id="accuracy">Accuracy</h2>
+<h2 id="limitations">Limitations</h2>
+
+<h3 id="accuracy">Accuracy</h3>
 
 It's important to understand there is no reliable way to detect the information in {shinybrowser} with 100% accuracy.
 
@@ -162,20 +170,18 @@ It's important to understand there is no reliable way to detect the information 
 
 With that in mind, {shinybrowser} should detect the correct information in most cases.
 
-<h2 id="supported">Supported values</h2>
+<h3 id="supported">Supported values</h3>
 
 Only major browsers and operating systems are supported, which means that the RStudio Viewer may result in an "UNKNOWN" browser, and unpopular operating systems may also result in "UNKNOWN". An operating system version is only detectable for Windows and for Mac OS X; all other operating systems will have an "UNKNOWN" version.
 
-<h2 id="device_type">Mobile vs desktop vs tablet</h2>
+<h3 id="device_type">Mobile vs desktop vs tablet</h3>
 
 For device type, {shinybrowser} attempts to detect whether a device is "mobile" or "desktop". The distinction between mobile and desktop is not always clear, so if what you actually care about is the size of the device, it might be better to use `get_width()`.
 
 Tablets return ambiguous results; some tablets self-report as mobile devices while others as desktop.
 
-<h2 id="dimensions">Width and height</h2>
+<h3 id="dimensions">Width and height</h3>
 
 The width and height of the browser window are only reported once, when the `detect()` function is initially called. If the user resizes the browser window, the new dimensions are not reported until the page is refreshed.
 
-<h2 id="dimensions">Convenience checker functions</h2>
 
-{shinybrowser} has a few convenience functions for very common checks. For example, there are many browsers, but often Internet Explorer is the problematic one. If you want to check for it you can use `is_browser_ie()`, which is just a shorthand for `get_browser() == "Internet Explorer"`. There are a few other similar `is_*` functions that can be used as a shortcut.
