@@ -1,6 +1,6 @@
 # shinybrowser
 
-<p align="center">
+<p>
   <a href="https://github.com/daattali/shinybrowser/actions">
     <img src="https://github.com/daattali/shinybrowser/workflows/R-CMD-check/badge.svg" alt="R Build Status" />
   </a>

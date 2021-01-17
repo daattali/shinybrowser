@@ -12,11 +12,12 @@ get_height()
 \description{
 The value is reactive, therefore it must be accessed inside a reactive context
 (such as an \link[shiny:observe]{observe} or \link[shiny:reactive]{reactive}).\cr\cr
-\code{{shinybrowser}} must be initialized with a call to \code{\link[=detect]{detect()}} in the app's ui.
+\{shinybrowser\} must be initialized with a call to \code{\link[=detect]{detect()}} in the app's ui.
 }
 \section{Width and height}{
 
-The width and height of the browser window are only reported when the page loads.
+The width and height of the browser window are only reported once, when the \code{\link[=detect]{detect()}}
+function is initially called.
 If the user resizes the browser window, the new dimensions are not reported until
 the page is refreshed.
 }
@@ -39,5 +40,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}, \code{\link[=get_height]{get_height()}}
+\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}
 }

@@ -10,3 +10,20 @@ is_device_desktop()
 Convenience function that checks if the user's device is detected as desktop.
 See \code{\link[=get_device]{get_device()}} for details.
 }
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Are you on desktop?",
+    textOutput("result")
+  )
+  server <- function(input, output, session) {
+    output$result <- renderText({
+      shinybrowser::is_device_desktop()
+    })
+  }
+  shinyApp(ui, server)
+}
+}

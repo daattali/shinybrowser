@@ -1,9 +1,9 @@
-#' Get all information about a user's browser
+#' Get all information about user's browser
 #'
 #' Get a list with all the information detected about the user's browser.\cr\cr
 #' The list is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Supported values
 #' @inheritSection detect Mobile vs desktop vs tablet
@@ -37,7 +37,7 @@ get_info <- function() {
 #' Get the user's browser name (such as "Chrome" or "Firefox") and version.\cr\cr
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Supported values
 #' @seealso [detect()], [get_info()], [is_browser_ie()],
@@ -75,7 +75,7 @@ get_browser_version <- function() {
 #' (such as "10" for Windows or "OS X" for Mac).\cr\cr
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Supported values
 #' @seealso [detect()], [get_info()], [is_os_windows()],
@@ -111,12 +111,11 @@ get_os_version <- function() {
 #'
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
-#' @inheritSection detect Supported values
 #' @inheritSection detect Mobile vs desktop vs tablet
-#' @seealso [detect()], [get_info()], [is_device_mobile()], [get_width()], [get_height()],
-#' [is_device_desktop()], [SUPPORTED_DEVICES]
+#' @seealso [detect()], [get_info()], [is_device_mobile()], [is_device_desktop()],
+#' [get_width()], [get_height()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -142,9 +141,9 @@ get_device <- function() {
 #'
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Width and height
-#' @seealso [detect()], [get_info()], [get_height()]
+#' @seealso [detect()], [get_info()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -174,10 +173,11 @@ get_height <- function() {
 
 #' Get user agent string from the browser
 #'
+#' This function exposes the user agent that is reported by the browser, but it
+#' should only be used for troubleshooting purposes.\cr\cr
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
-#' `{shinybrowser}` must be initialized with a call to [detect()] in the app's ui.
-#' @inheritSection detect Accuracy
+#' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @seealso [detect()], [get_info()]
 #' @examples
 #' if (interactive()) {
@@ -204,6 +204,22 @@ get_user_agent <- function() {
 #'
 #' Convenience function that checks if the user's device is detected as mobile.
 #' See [get_device()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you on mobile?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_device_mobile()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_device_mobile <- function() {
   get_device() == "Mobile"
@@ -213,6 +229,22 @@ is_device_mobile <- function() {
 #'
 #' Convenience function that checks if the user's device is detected as desktop.
 #' See [get_device()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you on desktop?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_device_desktop()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_device_desktop <- function() {
   !is_device_mobile()
@@ -222,6 +254,22 @@ is_device_desktop <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Internet Explorer.
 #' See [get_browser()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you using Internet Explorer?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_browser_ie()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_browser_ie <- function() {
   get_browser() == "Internet Explorer"
@@ -231,6 +279,22 @@ is_browser_ie <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Chrome.
 #' See [get_browser()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you using Chrome?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_browser_chrome()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_browser_chrome <- function() {
   get_browser() == "Chrome"
@@ -240,6 +304,22 @@ is_browser_chrome <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Firefox.
 #' See [get_browser()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you using Firefox?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_browser_firefox()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_browser_firefox <- function() {
   get_browser() == "Firefox"
@@ -249,6 +329,22 @@ is_browser_firefox <- function() {
 #'
 #' Convenience function that checks if the user's operating system is detected as Windows.
 #' See [get_os()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you on Windows?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_os_windows()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_os_windows <- function() {
   get_os() == "Windows"
@@ -258,6 +354,22 @@ is_os_windows <- function() {
 #'
 #' Convenience function that checks if the user's operating system is detected as Mac.
 #' See [get_os()] for details.
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'
+#'   ui <- fluidPage(
+#'     shinybrowser::detect(),
+#'     "Are you on Mac?",
+#'     textOutput("result")
+#'   )
+#'   server <- function(input, output, session) {
+#'     output$result <- renderText({
+#'       shinybrowser::is_os_mac()
+#'     })
+#'   }
+#'   shinyApp(ui, server)
+#' }
 #' @export
 is_os_mac <- function() {
   get_os() == "Mac"

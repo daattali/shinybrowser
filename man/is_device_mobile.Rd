@@ -10,3 +10,20 @@ is_device_mobile()
 Convenience function that checks if the user's device is detected as mobile.
 See \code{\link[=get_device]{get_device()}} for details.
 }
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Are you on mobile?",
+    textOutput("result")
+  )
+  server <- function(input, output, session) {
+    output$result <- renderText({
+      shinybrowser::is_device_mobile()
+    })
+  }
+  shinyApp(ui, server)
+}
+}

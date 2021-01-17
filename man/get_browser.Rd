@@ -13,16 +13,16 @@ get_browser_version()
 Get the user's browser name (such as "Chrome" or "Firefox") and version.\cr\cr
 The value is reactive, therefore it must be accessed inside a reactive context
 (such as an \link[shiny:observe]{observe} or \link[shiny:reactive]{reactive}).\cr\cr
-\code{{shinybrowser}} must be initialized with a call to \code{\link[=detect]{detect()}} in the app's ui.
+\{shinybrowser\} must be initialized with a call to \code{\link[=detect]{detect()}} in the app's ui.
 }
 \section{Accuracy}{
 
 It's important to understand there is no reliable way to detect the
-information in \code{{shinybrowser}} with 100\% accuracy.\cr\cr\code{{shinybrowser}} makes
+information in \{shinybrowser\} with 100\% accuracy.\cr\cr\{shinybrowser\} makes
 a best effort at identifying the most accurate information, but some
 browser/operating system combinations may be difficult to identify. Users
 can also use a variety of tools to deliberately spoof this information.\cr\cr
-With that in mind, \code{{shinybrowser}} should detect the correct information in
+With that in mind, \{shinybrowser\} should detect the correct information in
 most cases.
 }
 

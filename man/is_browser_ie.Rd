@@ -10,3 +10,20 @@ is_browser_ie()
 Convenience function that checks if the user's browser is detected as Internet Explorer.
 See \code{\link[=get_browser]{get_browser()}} for details.
 }
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Are you using Internet Explorer?",
+    textOutput("result")
+  )
+  server <- function(input, output, session) {
+    output$result <- renderText({
+      shinybrowser::is_browser_ie()
+    })
+  }
+  shinyApp(ui, server)
+}
+}

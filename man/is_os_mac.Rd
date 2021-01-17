@@ -10,3 +10,20 @@ is_os_mac()
 Convenience function that checks if the user's operating system is detected as Mac.
 See \code{\link[=get_os]{get_os()}} for details.
 }
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Are you on Mac?",
+    textOutput("result")
+  )
+  server <- function(input, output, session) {
+    output$result <- renderText({
+      shinybrowser::is_os_mac()
+    })
+  }
+  shinyApp(ui, server)
+}
+}

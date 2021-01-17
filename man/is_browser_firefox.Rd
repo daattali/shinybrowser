@@ -10,3 +10,20 @@ is_browser_firefox()
 Convenience function that checks if the user's browser is detected as Firefox.
 See \code{\link[=get_browser]{get_browser()}} for details.
 }
+\examples{
+if (interactive()) {
+  library(shiny)
+
+  ui <- fluidPage(
+    shinybrowser::detect(),
+    "Are you using Firefox?",
+    textOutput("result")
+  )
+  server <- function(input, output, session) {
+    output$result <- renderText({
+      shinybrowser::is_browser_firefox()
+    })
+  }
+  shinyApp(ui, server)
+}
+}
