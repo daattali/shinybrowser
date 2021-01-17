@@ -7,8 +7,8 @@ Authors@R: person("Dean", "Attali",
     comment = c(ORCID="0000-0002-5645-3493"))
 Description: Find out what information about a user's web browser in 'Shiny' apps. The available
     information is: browser name (such as 'Chrome' or 'Safari') and version, device type 
-    (mobile or dekstop), operating system (such as 'Windows' or 'Mac' or 'Android') and version,
-    browser dimensions.
+    (mobile or desktop), operating system (such as 'Windows' or 'Mac' or 'Android') and version,
+    and browser dimensions.
 URL: https://github.com/daattali/shinybrowser https://daattali.com/shiny/shinybrowser-demo
 BugReports: https://github.com/daattali/shinybrowser/issues
 Depends:
