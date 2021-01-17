@@ -59,12 +59,12 @@ if (interactive()) {
   )
   server <- function(input, output, session) {
     output$browser_info <- renderPrint({
-      shinybrowser::get_info()
+      shinybrowser::get_all_info()
     })
   }
   shinyApp(ui, server)
 }
 }
 \seealso{
-\code{\link[=get_info]{get_info()}}, \code{\link[=get_browser]{get_browser()}}, \code{\link[=get_os]{get_os()}}, \code{\link[=get_device]{get_device()}}, \code{\link[=get_width]{get_width()}}
+\code{\link[=get_all_info]{get_all_info()}}, \code{\link[=get_browser]{get_browser()}}, \code{\link[=get_os]{get_os()}}, \code{\link[=get_device]{get_device()}}, \code{\link[=get_width]{get_width()}}
 }

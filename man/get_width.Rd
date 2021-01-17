@@ -40,5 +40,5 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}
+\code{\link[=detect]{detect()}}, \code{\link[=get_all_info]{get_all_info()}}
 }

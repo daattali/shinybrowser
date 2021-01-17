@@ -28,7 +28,7 @@
 #' function is initially called.
 #' If the user resizes the browser window, the new dimensions are not reported until
 #' the page is refreshed.
-#' @seealso [get_info()], [get_browser()], [get_os()], [get_device()], [get_width()]
+#' @seealso [get_all_info()], [get_browser()], [get_os()], [get_device()], [get_width()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -40,7 +40,7 @@
 #'   )
 #'   server <- function(input, output, session) {
 #'     output$browser_info <- renderPrint({
-#'       shinybrowser::get_info()
+#'       shinybrowser::get_all_info()
 #'     })
 #'   }
 #'   shinyApp(ui, server)

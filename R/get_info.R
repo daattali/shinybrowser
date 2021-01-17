@@ -22,13 +22,13 @@
 #'   )
 #'   server <- function(input, output, session) {
 #'     output$browser_info <- renderPrint({
-#'       shinybrowser::get_info()
+#'       shinybrowser::get_all_info()
 #'     })
 #'   }
 #'   shinyApp(ui, server)
 #' }
 #' @export
-get_info <- function() {
+get_all_info <- function() {
   get_shinybrowser_info()
 }
 
@@ -40,7 +40,7 @@ get_info <- function() {
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Supported values
-#' @seealso [detect()], [get_info()], [is_browser_ie()],
+#' @seealso [detect()], [get_all_info()], [is_browser_ie()],
 #' [is_browser_chrome()], [is_browser_firefox()], [SUPPORTED_BROWSERS]
 #' @examples
 #' if (interactive()) {
@@ -78,7 +78,7 @@ get_browser_version <- function() {
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Supported values
-#' @seealso [detect()], [get_info()], [is_os_windows()],
+#' @seealso [detect()], [get_all_info()], [is_os_windows()],
 #' [is_os_mac()], [SUPPORTED_OPERATING_SYSTEMS]
 #' @examples
 #' if (interactive()) {
@@ -114,7 +114,7 @@ get_os_version <- function() {
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Accuracy
 #' @inheritSection detect Mobile vs desktop vs tablet
-#' @seealso [detect()], [get_info()], [is_device_mobile()], [is_device_desktop()],
+#' @seealso [detect()], [get_all_info()], [is_device_mobile()], [is_device_desktop()],
 #' [get_width()], [get_height()]
 #' @examples
 #' if (interactive()) {
@@ -143,7 +143,7 @@ get_device <- function() {
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Width and height
-#' @seealso [detect()], [get_info()]
+#' @seealso [detect()], [get_all_info()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -178,7 +178,7 @@ get_height <- function() {
 #' The value is reactive, therefore it must be accessed inside a reactive context
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
-#' @seealso [detect()], [get_info()]
+#' @seealso [detect()], [get_all_info()]
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)

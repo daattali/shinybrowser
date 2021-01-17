@@ -53,6 +53,6 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}, \code{\link[=is_browser_ie]{is_browser_ie()}},
+\code{\link[=detect]{detect()}}, \code{\link[=get_all_info]{get_all_info()}}, \code{\link[=is_browser_ie]{is_browser_ie()}},
 \code{\link[=is_browser_chrome]{is_browser_chrome()}}, \code{\link[=is_browser_firefox]{is_browser_firefox()}}, \link{SUPPORTED_BROWSERS}
 }

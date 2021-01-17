@@ -54,6 +54,6 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}, \code{\link[=is_os_windows]{is_os_windows()}},
+\code{\link[=detect]{detect()}}, \code{\link[=get_all_info]{get_all_info()}}, \code{\link[=is_os_windows]{is_os_windows()}},
 \code{\link[=is_os_mac]{is_os_mac()}}, \link{SUPPORTED_OPERATING_SYSTEMS}
 }

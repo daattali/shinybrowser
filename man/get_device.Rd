@@ -50,6 +50,6 @@ if (interactive()) {
 }
 }
 \seealso{
-\code{\link[=detect]{detect()}}, \code{\link[=get_info]{get_info()}}, \code{\link[=is_device_mobile]{is_device_mobile()}}, \code{\link[=is_device_desktop]{is_device_desktop()}},
+\code{\link[=detect]{detect()}}, \code{\link[=get_all_info]{get_all_info()}}, \code{\link[=is_device_mobile]{is_device_mobile()}}, \code{\link[=is_device_desktop]{is_device_desktop()}},
 \code{\link[=get_width]{get_width()}}, \code{\link[=get_height]{get_height()}}
 }
