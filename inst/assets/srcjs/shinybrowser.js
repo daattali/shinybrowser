@@ -72,7 +72,7 @@ shinybrowser = function() {
     	// Chrome on iOS
     	else if (ua.indexOf('CriOS/') >= 0) {
     		browser = 'Chrome';
-    		version = ua.match(/CriOS\/([0-9]+)\./i)[2];
+    		version = ua.match(/CriOS\/([0-9]+)\./i)[1];
     	}
     } catch(err) {}
 
