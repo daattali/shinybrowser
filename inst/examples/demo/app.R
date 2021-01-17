@@ -5,7 +5,7 @@ share <- list(
   title = "{shinybrowser}",
   url = "https://daattali.com/shiny/shinybrowser-demo/",
   source = "https://github.com/daattali/shinybrowser",
-  image = "https://daattali.com/shiny/img/shinybrowser",
+  image = "https://daattali.com/shiny/img/shinybrowser.png",
   description = "Find out information about a user's web browser in Shiny apps",
   twitter_user = "daattali"
 )

@@ -55,16 +55,72 @@ The available information is: browser name (such as "Chrome" or "Safari") and ve
 | [shinydisconnect](https://github.com/daattali/shinydisconnect/) | 🔌 Show a nice message when a Shiny app disconnects or errors | [🔗](https://daattali.com/shiny/shinydisconnect-demo/) |
 | [shinyforms](https://github.com/daattali/shinyforms/) | 📝 Easily create questionnaire-type forms with Shiny | WIP |
 
-# Table of contents
+## Table of contents
+- [The problem](#problem)
+- [Sponsors 🏆](#sponsors)
+- [How to use](#usage)
+- [Example](#example)
+- [Installation](#install)
+- [Accuracy](#accuracy)
+- [Supported values](#supported)
+- [Mobile vs desktop vs tablet](#device_type)
+- [Width and height](#dimensions)
+- [Convenience checker functions](#dimensions)
 
-TODO
+<h2 id="problem">The Problem</h2>
 
-{shinybrowser} can be useful for different cases when you want to know:
-- Whether they are on Internet Explorer, and show a message suggesting a different browser
-- Whether they are on a desktop or on mobile, for UI purposes
-- Whether they are on Windows or MacOS so that you can show a different keyboard shortcut they need to use
+When building a Shiny app for other users, sometimes you might want to know some information about the user's browser and system. A few scenarios where this can be useful:
 
-On my current machine, the information returned is:
+1. Your Shiny app is using an advanced browser functionality that isn't supported in Internet Explorer. If a user views your app on Internet Explorer, you want to show them a warning message that some functionality might not work.
+2. Your app shows some text to the user and you want to show them a message with the keyboard shortcut for copying the text to their clipboard. You need to know whether the user is on Windows or Mac to decide what keyboard shortcut to use (ctrl+C vs command+C).
+3. Your app contains a plot with a legend. If the user is on a wide enough screen, you want the legend to appear beside the plot, but if the screen is too narrow then you want the legend to appear below the plot.
+
+In these situations, you want to detect information about the user's browser type (scenario 1), operating system (scenario 2), or browser dimensions (scenario 3).
+
+{shinybrowser} gives you easy access to this information.
+
+<h2 id="sponsors">Sponsors 🏆</h2>
+
+Developing and maintaining many packages takes a lot of time. Please consider sponsoring this work! 
+
+> There are no sponsors yet
+
+[Become the first sponsor for
+{shinybrowser}\!](https://github.com/sponsors/daattali/sponsorships?tier_id=39856)
+
+<h2 id="usage">How to use</h2>
+
+First you need to call `detect()` anywhere in the UI. This will initialize {shinybrowser} and run the script that attempts to detect all the user information and send it to Shiny.
+
+Then you can use any of the {shinybrowser} functions to inquire about the user. You can use and `get_browser()`/`get_browser_version()` to get the browser name and version, `get_os()`/`get_os_version()` to get the operating system, `get_device()` to find out if the user is on mobile or desktop, and `get_width()`/`get_height()` to find out the browser dimensions.
+
+All these values are reactive, so they must be accessed inside an `observe()`/`reactive()` or similar.
+
+<h2 id="example">Example</h2>
+
+To see what {shinybrowser} returns for your system, check the [demo Shiny app](https://daattali.com/shiny/shinybrowser-demo/). 
+
+A simple example of using {shinybrowser} is below:
+
+```
+library(shiny)
+
+ui <- fluidPage(
+  shinybrowser::detect()
+)
+
+server <- function(input, output, session) {
+  observe({
+    str(shinybrowser::get_all_info())
+  })
+}
+
+shinyApp(ui, server)
+```
+
+This app will print all the information retrieved by {shinybrowser} to your console. Notice that it's calling `get_all_info()`, which is a way to get all the information in one list instead of using the individual `get_*` functions.
+
+On my current machine, the output from the app is:
 
 ```
 List of 5
@@ -80,3 +136,46 @@ List of 5
   ..$ height: int 937
  $ user_agent: chr "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
 ```
+
+Note that {shinybrowser} also returns the "user_agent" string, which you can access using `get_user_agent()`, but you generally shouldn't need to use this string.
+
+<h2 id="install">Installation</h2>
+
+To install the stable CRAN version:
+
+```
+install.packages("shinybrowser")
+```
+
+To install the latest development version from GitHub:
+
+```
+install.packages("remotes")
+remotes::install_github("daattali/shinybrowser")
+```
+
+<h2 id="accuracy">Accuracy</h2>
+
+It's important to understand there is no reliable way to detect the information in {shinybrowser} with 100% accuracy.
+
+{shinybrowser} makes a best effort at identifying the most accurate information, but some browser/operating system combinations may be difficult to identify. Users can also use a variety of tools to deliberately spoof this information.
+
+With that in mind, {shinybrowser} should detect the correct information in most cases.
+
+<h2 id="supported">Supported values</h2>
+
+Only major browsers and operating systems are supported, which means that the RStudio Viewer may result in an "UNKNOWN" browser, and unpopular operating systems may also result in "UNKNOWN". An operating system version is only detectable for Windows and for Mac OS X; all other operating systems will have an "UNKNOWN" version.
+
+<h2 id="device_type">Mobile vs desktop vs tablet</h2>
+
+For device type, {shinybrowser} attempts to detect whether a device is "mobile" or "desktop". The distinction between mobile and desktop is not always clear, so if what you actually care about is the size of the device, it might be better to use `get_width()`.
+
+Tablets return ambiguous results; some tablets self-report as mobile devices while others as desktop.
+
+<h2 id="dimensions">Width and height</h2>
+
+The width and height of the browser window are only reported once, when the `detect()` function is initially called. If the user resizes the browser window, the new dimensions are not reported until the page is refreshed.
+
+<h2 id="dimensions">Convenience checker functions</h2>
+
+{shinybrowser} has a few convenience functions for very common checks. For example, there are many browsers, but often Internet Explorer is the problematic one. If you want to check for it you can use `is_browser_ie()`, which is just a shorthand for `get_browser() == "Internet Explorer"`. There are a few other similar `is_*` functions that can be used as a shortcut.
