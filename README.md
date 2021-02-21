@@ -22,7 +22,7 @@ by <a href="https://deanattali.com">Dean Attali</a>
 
 ---
 
-<!--<img src="inst/img/hex.png" width="170" align="right"/>-->
+<img src="inst/img/hex.png" width="170" align="right"/>
 
 {shinybrowser} lets you easily detect a user's web browser information in Shiny apps.
 
