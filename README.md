@@ -184,4 +184,6 @@ Tablets return ambiguous results; some tablets self-report as mobile devices whi
 
 The width and height of the browser window are only reported once, when the `detect()` function is initially called. If the user resizes the browser window, the new dimensions are not reported until the page is refreshed.
 
+<h2>Credits</h2>
 
+Logo design by [Alfredo Hernández](https://aldomann.com/).
