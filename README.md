@@ -73,8 +73,8 @@ The available information is: browser name (such as "Chrome" or "Safari") and ve
 
 When building a Shiny app for other users, sometimes you might want to know some information about the user's browser and system. A few scenarios where this can be useful:
 
-1. Your Shiny app is using an advanced browser functionality that isn't supported in Internet Explorer. If a user views your app on Internet Explorer, you want to show them a warning message that some functionality might not work.
-2. Your app shows some text to the user and you want to show them a message with the keyboard shortcut for copying the text to their clipboard. You need to know whether the user is on Windows or Mac to decide what keyboard shortcut to use (ctrl+C vs command+C).
+1. Your Shiny app is using an advanced browser functionality that isn't supported in Internet Explorer. If a user views your app on Internet Explorer, you want to show them a warning message.
+2. Your app displays some text to the user and you want to show them a message with the keyboard shortcut for copying the text to their clipboard. You need to know whether the user is on Windows or Mac to decide what keyboard shortcut to use (ctrl+C vs command+C).
 3. Your app contains a plot with a legend. If the user is on a wide enough screen, you want the legend to appear beside the plot, but if the screen is too narrow then you want the legend to appear below the plot.
 
 In these situations, you want to detect information about the user's browser type (scenario 1), operating system (scenario 2), or browser dimensions (scenario 3).
@@ -92,9 +92,9 @@ Developing and maintaining many packages takes a lot of time. Please consider sp
 
 <h2 id="usage">How to use</h2>
 
-First you need to call `detect()` anywhere in the UI. This will initialize {shinybrowser} and run the script that attempts to detect all the user information and send it to Shiny.
+First you need to call `detect()` anywhere in the UI. This will initialize {shinybrowser}, run the script that attempts to detect all the user information, and send it to Shiny.
 
-Then you can use any of the {shinybrowser} functions to inquire about the user. You can use and `get_browser()`/`get_browser_version()` to get the browser name and version, `get_os()`/`get_os_version()` to get the operating system, `get_device()` to find out if the user is on mobile or desktop, and `get_width()`/`get_height()` to find out the browser dimensions.
+Then you can use any of the {shinybrowser} functions to inquire about the user. You can use `get_browser()`/`get_browser_version()` to get the browser name and version, `get_os()`/`get_os_version()` to get the operating system, `get_device()` to find out if the user is on mobile or desktop, and `get_width()`/`get_height()` to find out the browser dimensions.
 
 All these values are reactive, so they must be accessed inside an `observe()`/`reactive()` or similar.
 
