@@ -9,6 +9,11 @@ get_width()
 
 get_height()
 }
+\value{
+User's detected browser width in pixels
+
+User's detected browser height in pixels
+}
 \description{
 The value is reactive, therefore it must be accessed inside a reactive context
 (such as an \link[shiny:observe]{observe} or \link[shiny:reactive]{reactive}).\cr\cr

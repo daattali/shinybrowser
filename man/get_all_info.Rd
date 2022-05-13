@@ -6,6 +6,10 @@
 \usage{
 get_all_info()
 }
+\value{
+List with all information detected about the user's browser: \code{device}, \code{browser},
+\code{os}, \code{dimensions}, \code{user_agent}
+}
 \description{
 Get a list with all the information detected about the user's browser.\cr\cr
 The list is reactive, therefore it must be accessed inside a reactive context

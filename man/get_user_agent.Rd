@@ -6,6 +6,9 @@
 \usage{
 get_user_agent()
 }
+\value{
+User's user-agent string
+}
 \description{
 This function exposes the user agent that is reported by the browser, but it
 should only be used for troubleshooting purposes.\cr\cr

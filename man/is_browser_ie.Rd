@@ -6,6 +6,9 @@
 \usage{
 is_browser_ie()
 }
+\value{
+Whether or not this user using Internet Explorer
+}
 \description{
 Convenience function that checks if the user's browser is detected as Internet Explorer.
 See \code{\link[=get_browser]{get_browser()}} for details.

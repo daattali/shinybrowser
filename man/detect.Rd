@@ -6,6 +6,9 @@
 \usage{
 detect()
 }
+\value{
+Scripts that are automatically inserted into the UI in order to use this package.
+}
 \description{
 This function must be called somewhere in a Shiny app's UI in order to use any other
 \{shinybrowser\} functions.

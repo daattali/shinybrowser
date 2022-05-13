@@ -6,6 +6,9 @@
 \usage{
 is_os_windows()
 }
+\value{
+Whether or not this user using Windows
+}
 \description{
 Convenience function that checks if the user's operating system is detected as Windows.
 See \code{\link[=get_os]{get_os()}} for details.

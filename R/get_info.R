@@ -11,6 +11,8 @@
 #' @seealso [detect()], [get_browser()], [get_browser_version()], [get_os()], [get_os_version()],
 #' [get_device()], [get_width()], [get_height()], [get_user_agent()],
 #' [SUPPORTED_BROWSERS], [SUPPORTED_DEVICES], [SUPPORTED_OPERATING_SYSTEMS]
+#' @return List with all information detected about the user's browser: `device`, `browser`,
+#' `os`, `dimensions`, `user_agent`
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -42,6 +44,7 @@ get_all_info <- function() {
 #' @inheritSection detect Supported values
 #' @seealso [detect()], [get_all_info()], [is_browser_ie()],
 #' [is_browser_chrome()], [is_browser_firefox()], [SUPPORTED_BROWSERS]
+#' @return User's detected browser type
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -64,6 +67,7 @@ get_browser <- function() {
 }
 
 #' @rdname get_browser
+#' @return User's detected browser version
 #' @export
 get_browser_version <- function() {
   get_shinybrowser_info()[["browser"]][["version"]]
@@ -80,6 +84,7 @@ get_browser_version <- function() {
 #' @inheritSection detect Supported values
 #' @seealso [detect()], [get_all_info()], [is_os_windows()],
 #' [is_os_mac()], [SUPPORTED_OPERATING_SYSTEMS]
+#' @return User's detected operating system
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -102,6 +107,7 @@ get_os <- function() {
 }
 
 #' @rdname get_os
+#' @return User's detected operating system version
 #' @export
 get_os_version <- function() {
   get_shinybrowser_info()[["os"]][["version"]]
@@ -116,6 +122,7 @@ get_os_version <- function() {
 #' @inheritSection detect Mobile vs desktop vs tablet
 #' @seealso [detect()], [get_all_info()], [is_device_mobile()], [is_device_desktop()],
 #' [get_width()], [get_height()]
+#' @return User's detected decive type ("Mobile" or "Desktop")
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -144,6 +151,7 @@ get_device <- function() {
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @inheritSection detect Width and height
 #' @seealso [detect()], [get_all_info()]
+#' @return User's detected browser width in pixels
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -166,6 +174,7 @@ get_width <- function() {
 }
 
 #' @rdname get_width
+#' @return User's detected browser height in pixels
 #' @export
 get_height <- function() {
   get_shinybrowser_info()[["dimensions"]][["height"]]
@@ -179,6 +188,7 @@ get_height <- function() {
 #' (such as an [observe][shiny::observe] or [reactive][shiny::reactive]).\cr\cr
 #' \{shinybrowser\} must be initialized with a call to [detect()] in the app's ui.
 #' @seealso [detect()], [get_all_info()]
+#' @return User's user-agent string
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -204,6 +214,7 @@ get_user_agent <- function() {
 #'
 #' Convenience function that checks if the user's device is detected as mobile.
 #' See [get_device()] for details.
+#' @return Whether or not this user is on mobile
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -229,6 +240,7 @@ is_device_mobile <- function() {
 #'
 #' Convenience function that checks if the user's device is detected as desktop.
 #' See [get_device()] for details.
+#' @return Whether or not this user is on desktop
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -254,6 +266,7 @@ is_device_desktop <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Internet Explorer.
 #' See [get_browser()] for details.
+#' @return Whether or not this user using Internet Explorer
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -279,6 +292,7 @@ is_browser_ie <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Chrome.
 #' See [get_browser()] for details.
+#' @return Whether or not this user using Chrome
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -304,6 +318,7 @@ is_browser_chrome <- function() {
 #'
 #' Convenience function that checks if the user's browser is detected as Firefox.
 #' See [get_browser()] for details.
+#' @return Whether or not this user using Firefox
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -329,6 +344,7 @@ is_browser_firefox <- function() {
 #'
 #' Convenience function that checks if the user's operating system is detected as Windows.
 #' See [get_os()] for details.
+#' @return Whether or not this user using Windows
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -354,6 +370,7 @@ is_os_windows <- function() {
 #'
 #' Convenience function that checks if the user's operating system is detected as Mac.
 #' See [get_os()] for details.
+#' @return Whether or not this user using MacOS
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)

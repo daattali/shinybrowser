@@ -6,6 +6,9 @@
 \usage{
 is_browser_chrome()
 }
+\value{
+Whether or not this user using Chrome
+}
 \description{
 Convenience function that checks if the user's browser is detected as Chrome.
 See \code{\link[=get_browser]{get_browser()}} for details.

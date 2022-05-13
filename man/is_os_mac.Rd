@@ -6,6 +6,9 @@
 \usage{
 is_os_mac()
 }
+\value{
+Whether or not this user using MacOS
+}
 \description{
 Convenience function that checks if the user's operating system is detected as Mac.
 See \code{\link[=get_os]{get_os()}} for details.

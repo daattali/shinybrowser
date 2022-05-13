@@ -6,6 +6,9 @@
 \usage{
 is_device_desktop()
 }
+\value{
+Whether or not this user is on desktop
+}
 \description{
 Convenience function that checks if the user's device is detected as desktop.
 See \code{\link[=get_device]{get_device()}} for details.

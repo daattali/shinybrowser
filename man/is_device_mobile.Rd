@@ -6,6 +6,9 @@
 \usage{
 is_device_mobile()
 }
+\value{
+Whether or not this user is on mobile
+}
 \description{
 Convenience function that checks if the user's device is detected as mobile.
 See \code{\link[=get_device]{get_device()}} for details.

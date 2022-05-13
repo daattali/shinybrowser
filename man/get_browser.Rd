@@ -9,6 +9,11 @@ get_browser()
 
 get_browser_version()
 }
+\value{
+User's detected browser type
+
+User's detected browser version
+}
 \description{
 Get the user's browser name (such as "Chrome" or "Firefox") and version.\cr\cr
 The value is reactive, therefore it must be accessed inside a reactive context

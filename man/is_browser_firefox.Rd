@@ -6,6 +6,9 @@
 \usage{
 is_browser_firefox()
 }
+\value{
+Whether or not this user using Firefox
+}
 \description{
 Convenience function that checks if the user's browser is detected as Firefox.
 See \code{\link[=get_browser]{get_browser()}} for details.

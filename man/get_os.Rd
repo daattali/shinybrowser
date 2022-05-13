@@ -9,6 +9,11 @@ get_os()
 
 get_os_version()
 }
+\value{
+User's detected operating system
+
+User's detected operating system version
+}
 \description{
 Get the user's operating system (such as "Windows" or "Mac" or "Android") and version
 (such as "10" for Windows or "OS X" for Mac).\cr\cr

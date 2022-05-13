@@ -29,6 +29,7 @@
 #' If the user resizes the browser window, the new dimensions are not reported until
 #' the page is refreshed.
 #' @seealso [get_all_info()], [get_browser()], [get_os()], [get_device()], [get_width()]
+#' @return Scripts that are automatically inserted into the UI in order to use this package.
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
