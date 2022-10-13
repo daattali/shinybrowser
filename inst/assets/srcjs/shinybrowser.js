@@ -134,6 +134,9 @@ shinybrowser = function() {
   };
 
   return {
+    getBrowser : getBrowser,
+    getOS : getOS,
+
     detect : function() {
       var props = {
         device : isMobile() ? 'Mobile' : 'Desktop',
