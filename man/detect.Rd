@@ -7,7 +7,7 @@
 detect()
 }
 \value{
-Scripts that are automatically inserted into the UI in order to use this package.
+HTML dependencies that are required to use {shinybrowser}.
 }
 \description{
 This function must be called somewhere in a Shiny app's UI in order to use any other

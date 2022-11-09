@@ -29,7 +29,7 @@
 #' If the user resizes the browser window, the new dimensions are not reported until
 #' the page is refreshed.
 #' @seealso [get_all_info()], [get_browser()], [get_os()], [get_device()], [get_width()]
-#' @return Scripts that are automatically inserted into the UI in order to use this package.
+#' @return HTML dependencies that are required to use {shinybrowser}.
 #' @examples
 #' if (interactive()) {
 #'   library(shiny)
@@ -48,12 +48,11 @@
 #' }
 #' @export
 detect <- function() {
-  shiny::addResourcePath("shinybrowser-assets", system.file("assets", package = "shinybrowser"))
-  shiny::singleton(
-    shiny::tags$head(
-      shiny::tags$script(
-        src = file.path("shinybrowser-assets", "srcjs", "shinybrowser.js")
-      )
-    )
+  htmltools::htmlDependency(
+    name = "shinybrowser-binding",
+    version = as.character(utils::packageVersion("shinybrowser")),
+    package = "shinybrowser",
+    src = "assets/shinybrowser",
+    script = "shinybrowser.js"
   )
 }
