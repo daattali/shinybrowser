@@ -48,11 +48,13 @@
 #' }
 #' @export
 detect <- function() {
-  htmltools::htmlDependency(
-    name = "shinybrowser-binding",
-    version = as.character(utils::packageVersion("shinybrowser")),
-    package = "shinybrowser",
-    src = "assets/shinybrowser",
-    script = "shinybrowser.js"
+  shiny::tagList(
+    htmltools::htmlDependency(
+      name = "shinybrowser-binding",
+      version = as.character(utils::packageVersion("shinybrowser")),
+      package = "shinybrowser",
+      src = "assets/shinybrowser",
+      script = "shinybrowser.js"
+    )
   )
 }

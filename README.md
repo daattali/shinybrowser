@@ -137,6 +137,8 @@ List of 5
 
 Note that {shinybrowser} also returns the "user_agent" string, which you can access using `get_user_agent()`, but you generally shouldn't need to use this string.
 
+You can also use {shinybrowser} in Rmarkdown documents, as long as they use `runtime: shiny`.
+
 <h2 id="convenience">Convenience checker functions</h2>
 
 {shinybrowser} has a few convenience functions for very common checks. For example, there are many browsers, but often Internet Explorer is the problematic one. If you want to check for it you can use `is_browser_ie()`, which is just a shorthand for `get_browser() == "Internet Explorer"`. There are a few other similar `is_*` functions that can be used as a shortcut.

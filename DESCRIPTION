@@ -1,6 +1,6 @@
 Package: shinybrowser
 Title: Find Out Information About a User's Web Browser in 'Shiny'
-Version: 1.0.0.9000
+Version: 1.0.0.9001
 Authors@R: person("Dean", "Attali",
     email = "daattali@gmail.com",
     role = c("aut", "cre"),
@@ -20,5 +20,5 @@ Suggests:
     shinydisconnect
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
